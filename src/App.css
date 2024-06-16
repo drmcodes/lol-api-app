@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2b2929;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    
+    font-size: 1em;
+}
+
+.about-loltracker{
+    font-size: 16px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.logo-png {
+    height: 64px;
+    width: 64px;
+}
+
+.header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+button, select {
+    margin-bottom: 12px;
+    border-radius: 8px;
+    width: 68px;
+    text-align: center;
+}
+
+button:hover, select:focus-visible {
+    color: white;
+    background-color: #000000;
+    transition: 0.3s ease-in;
+}
+
+.header-text {
+    font-size: 72px;
+    font-family: fantasy;
+}
+
+.categories,
+.about-loltracker,
+.main,
+.image-slider,
+.other-content,
+.right-sidebar {
+    border: 1px solid #000000;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow:auto;
+    word-wrap: break-word;
+}
+
+.categories {
+    grid-area: 2 / 1 / 6 / 4;
+}
+
+.about-loltracker {
+    grid-area: 6 / 1 / 9 / 4;
+}
+
+.main {
+    grid-area: 2 / 4 / 13 / 13;
+}
+
+.image-slider {
+    grid-area: 9 / 1 / 13 / 4;
+}
+
+.other-content {
+    background-color: aqua;
+    grid-area: 2 / 11 / 13 / 13;
+}
+
+.right-sidebar {
+    grid-area: 2 / 10 / 7 / 13;
+}
+
+@media screen and (max-width: 500px) {
+    .header-text {
+        font-size: xx-large;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 0.8em;
+    }
+    .categories, .about-loltracker {
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+    .categories {
+        grid-row-start: 2;
+        grid-row-end: 6;
+    }
+    .about-loltracker {
+        grid-row-start: 6;
+        grid-row-end: 9;
+    }
+    .image-slider {
+        grid-row-start: 9;
+        grid-row-end: 13;
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+    .main {
+        grid-column-start: 6;
+        grid-column-end: 13;
+    }
+    .other-posts {
+        display: none;
+    }
+    .header {
+        grid-row-start: 1;
+        grid-row-end: 1;
+        font-size: 1em;
+    }
+    .header-text {
+        font-size: x-large;
+        padding: 12px;
+    }
+}
