@@ -23,6 +23,7 @@ function App() {
           return {
             name: key,
             title: data.data[key].title,
+            tags: data.data[key].tags,
           };
         });
         setChampions(championsData);
@@ -46,10 +47,24 @@ function App() {
       setFilteredChampions(filtered);
     }
   };
+  const handleSelected = (selectedTags) => {
+    if (selectedTags.length === 0) {
+      setFilteredChampions(champions);
+    } else {
+      const filtered = champions.filter((champion) =>
+        selectedTags.every((tag) => champion.tags.includes(tag))
+      );
+      setFilteredChampions(filtered);
+    }
+  };
 
   return (
     <div className="container">
-      <Header logo={logo} onSearch={handleSearch} />
+      <Header
+        logo={logo}
+        onSearch={handleSearch}
+        handleSelected={handleSelected}
+      />
       <div className="main">
         {filteredChampions.map((champion, index) => (
           <ChampionImage

@@ -42,7 +42,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  grid-area: 2 / 1 / 13 / 13;
+  grid-area: 3 / 1 / 13 / 13;
 }
 
 .card-content {
@@ -73,7 +73,10 @@ body {
 }
 
 .header {
-  grid-column: 1 / -1;
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,20 +87,52 @@ body {
   color: #778da9;
 }
 
+.marked {
+  background-color: #2d89f1;
+}
+
 input {
   margin-bottom: 8px;
   margin-top: 8px;
-  border-radius: 8px;
+
   width: 120px;
   text-align: center;
 }
 
-button {
+.searchByType {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  display: flex;
+  gap: 8px;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.searchType {
+  /* {#2d89f1 color seleccionado}*/
+  background-color: #5f5b6b;
+  color: #edf2f4;
+  border-radius: 16px;
+  width: 72px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.searchType.marked {
+  background-color: #2d89f1;
+  color: white;
+}
+.searchType.false {
+  background-color: #5f5b6b;
+  color: white;
+}
+
+.searchButton {
   background-color: #1b263b;
   color: white;
 }
 
-button:hover {
+.searchButton:hover {
   color: white;
   background-color: #2d89f1;
   transition: 0.3s ease-in;
@@ -187,7 +222,7 @@ button:hover {
   input {
     margin-bottom: 8px;
     margin-top: 8px;
-    border-radius: 8px;
+
     width: 68px;
     text-align: center;
   }
@@ -196,12 +231,13 @@ button:hover {
 @media screen and (max-width: 440px) {
   .header-text {
     font-size: 1.1em;
+    text-align: center;
   }
   button,
   input {
     margin-bottom: 8px;
     margin-top: 8px;
-    border-radius: 8px;
+
     width: 68px;
     text-align: center;
   }
