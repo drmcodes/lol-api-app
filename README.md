@@ -12,3 +12,5 @@ LOLTRACKER is an application that consumes an API for the video game League Of L
 
 - **Real-time Updates**: Ensures that users have access to the latest champion data and updates as provided by the API.
 
+# You can access the deployed application [here](https://drmcodes-lolapp.vercel.app/).
+
