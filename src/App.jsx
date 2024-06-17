@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import logo from "./logo/logo.png";
 import Header from "./components/Header";
-import ChampionImage from "./components/ChampionImage"; // Importamos ChampionImage en lugar de ChampionCard
-
+import ChampionImage from "./components/ChampionImage";
 
 function App() {
   const [champions, setChampions] = useState([]);
+  const [filteredChampions, setFilteredChampions] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -19,9 +19,14 @@ function App() {
           throw new Error("Network error");
         }
         const data = await response.json();
-        // Obtener los nombres de los campeones
-        const championNames = Object.keys(data.data);
-        setChampions(championNames);
+        const championsData = Object.keys(data.data).map((key) => {
+          return {
+            name: key,
+            title: data.data[key].title,
+          };
+        });
+        setChampions(championsData);
+        setFilteredChampions(championsData);
       } catch (error) {
         console.error("Error fetching champion data", error);
         setError(error);
@@ -31,16 +36,29 @@ function App() {
     fetchData();
   }, []);
 
+  const handleSearch = (searchTerm) => {
+    if (searchTerm === "") {
+      setFilteredChampions(champions);
+    } else {
+      const filtered = champions.filter((champion) =>
+        champion.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredChampions(filtered);
+    }
+  };
+
   return (
     <div className="container">
-      <Header logo={logo} />
-     
+      <Header logo={logo} onSearch={handleSearch} />
       <div className="main">
-        {champions.map((championName, index) => (
-          <ChampionImage key={index} championName={championName} />
+        {filteredChampions.map((champion, index) => (
+          <ChampionImage
+            key={index}
+            championName={champion.name}
+            championTitle={champion.title}
+          />
         ))}
       </div>
-      
     </div>
   );
 }

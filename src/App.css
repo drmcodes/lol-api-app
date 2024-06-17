@@ -7,12 +7,12 @@ body {
 }
 
 body {
-  scrollbar-width: thin; /* "auto" or "thin" */
-  scrollbar-color: #495057 #212529; /* scroll thumb and track */
+  scrollbar-width: thin;
+  scrollbar-color: #495057 #212529;
 }
 .header-text {
   font-size: 72px;
-  color: #fca311;
+  color: #edf2f4;
 }
 
 .container {
@@ -42,7 +42,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  grid-area: 2 / 1 / 13 / 13; /* Expande el main por todo el grid */
+  grid-area: 2 / 1 / 13 / 13;
 }
 
 .card-content {
@@ -79,31 +79,33 @@ body {
   align-items: center;
   padding: 0 30px;
   box-sizing: border-box;
-  position: sticky;
   font-size: 1.5em;
   font-family: fantasy;
   color: #778da9;
 }
 
-button,
-select {
+input {
   margin-bottom: 8px;
   margin-top: 8px;
   border-radius: 8px;
-  width: 68px;
+  width: 120px;
   text-align: center;
 }
 
-button:hover,
-select:focus-visible {
+button {
+  background-color: #1b263b;
   color: white;
-  background-color: #000000;
+}
+
+button:hover {
+  color: white;
+  background-color: #2d89f1;
   transition: 0.3s ease-in;
 }
 
 .slider-button {
   position: absolute;
-  top: 50%; /* Alinea verticalmente */
+  top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
@@ -113,15 +115,15 @@ select:focus-visible {
   font-size: 24px;
   width: 40px;
   height: 40px;
-  z-index: 10; /* Asegura que esté por encima de otros elementos si es necesario */
+  z-index: 10;
 }
 
 .slider-button.left {
-  left: 10px; /* Ajusta según necesites */
+  left: 10px;
 }
 
 .slider-button.right {
-  right: 10px; /* Ajusta según necesites */
+  right: 10px;
 }
 
 .slider-image {
@@ -177,14 +179,30 @@ select:focus-visible {
   color: #ccc;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 640px) {
   .header-text {
     font-size: 1.5em;
+  }
+  button,
+  input {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    border-radius: 8px;
+    width: 68px;
+    text-align: center;
   }
 }
 
 @media screen and (max-width: 440px) {
   .header-text {
     font-size: 1.1em;
+  }
+  button,
+  input {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    border-radius: 8px;
+    width: 68px;
+    text-align: center;
   }
 }
