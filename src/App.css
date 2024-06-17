@@ -1,143 +1,190 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #2b2929;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    
-    font-size: 1em;
+  margin: 0;
+  padding: 0;
+  background-color: #2b2929;
+  color: #e0e1dd;
+  font-family: "Times New Roman", Times, serif;
 }
 
-.about-loltracker{
-    font-size: 16px;
-    justify-content: center;
-    align-items: flex-end;
+body {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #495057 #212529; /* scroll thumb and track */
 }
-
+.header-text {
+  font-size: 72px;
+  color: #fca311;
+}
 
 .container {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    gap: 10px;
-    padding: 10px;
-    box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .logo-png {
-    height: 64px;
-    width: 64px;
-}
-
-.header {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    box-sizing: border-box;
-}
-
-button, select {
-    margin-bottom: 12px;
-    border-radius: 8px;
-    width: 68px;
-    text-align: center;
-}
-
-button:hover, select:focus-visible {
-    color: white;
-    background-color: #000000;
-    transition: 0.3s ease-in;
-}
-
-.header-text {
-    font-size: 72px;
-    font-family: fantasy;
-}
-
-.categories,
-.about-loltracker,
-.main,
-.image-slider,
-.other-content,
-.right-sidebar {
-    border: 1px solid #000000;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow:auto;
-    word-wrap: break-word;
-}
-
-.categories {
-    grid-area: 2 / 1 / 6 / 4;
-}
-
-.about-loltracker {
-    grid-area: 6 / 1 / 9 / 4;
+  height: 64px;
+  width: 64px;
 }
 
 .main {
-    grid-area: 2 / 4 / 13 / 13;
+  background-color: #1b263b;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  overflow: auto;
+  word-wrap: break-word;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  grid-area: 2 / 1 / 13 / 13; /* Expande el main por todo el grid */
 }
 
-.image-slider {
-    grid-area: 9 / 1 / 13 / 4;
+.card-content {
+  height: auto;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
 }
 
-.other-content {
-    background-color: aqua;
-    grid-area: 2 / 11 / 13 / 13;
+.card-content img {
+  width: 90%;
+  height: auto;
+  display: block;
 }
 
-.right-sidebar {
-    grid-area: 2 / 10 / 7 / 13;
+.card-content p {
+  margin-top: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  font-size: 1.5em;
+  color: white;
+  border-top: 2px solid #151515;
+  transform: translateY(-40px);
 }
 
-@media screen and (max-width: 500px) {
-    .header-text {
-        font-size: xx-large;
-    }
+.header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-sizing: border-box;
+  position: sticky;
+  font-size: 1.5em;
+  font-family: fantasy;
+  color: #778da9;
 }
 
-@media screen and (max-width: 768px) {
-    body {
-        font-size: 0.8em;
-    }
-    .categories, .about-loltracker {
-        grid-column-start: 1;
-        grid-column-end: 6;
-    }
-    .categories {
-        grid-row-start: 2;
-        grid-row-end: 6;
-    }
-    .about-loltracker {
-        grid-row-start: 6;
-        grid-row-end: 9;
-    }
-    .image-slider {
-        grid-row-start: 9;
-        grid-row-end: 13;
-        grid-column-start: 1;
-        grid-column-end: 6;
-    }
-    .main {
-        grid-column-start: 6;
-        grid-column-end: 13;
-    }
-    .other-posts {
-        display: none;
-    }
-    .header {
-        grid-row-start: 1;
-        grid-row-end: 1;
-        font-size: 1em;
-    }
-    .header-text {
-        font-size: x-large;
-        padding: 12px;
-    }
+button,
+select {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  border-radius: 8px;
+  width: 68px;
+  text-align: center;
+}
+
+button:hover,
+select:focus-visible {
+  color: white;
+  background-color: #000000;
+  transition: 0.3s ease-in;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%; /* Alinea verticalmente */
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  z-index: 10; /* Asegura que esté por encima de otros elementos si es necesario */
+}
+
+.slider-button.left {
+  left: 10px; /* Ajusta según necesites */
+}
+
+.slider-button.right {
+  right: 10px; /* Ajusta según necesites */
+}
+
+.slider-image {
+  position: absolute;
+  top: 50px;
+  transform: translate(-50%);
+  width: 100%;
+  max-height: 170px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background-color: transparent;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  text-align: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+@media screen and (max-width: 620px) {
+  .header-text {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .header-text {
+    font-size: 1.1em;
+  }
 }
