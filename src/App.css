@@ -16,6 +16,10 @@ body {
   font-weight: bold;
 }
 
+.header{
+  border-bottom: 1px double white;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
