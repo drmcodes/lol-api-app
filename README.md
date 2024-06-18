@@ -14,4 +14,4 @@ LOLTRACKER is an application that consumes an API for the video game League Of L
 
 # You can access the deployed application [here](https://drmcodes-lolapp.vercel.app/).
 
-![v3](https://github.com/drmcodes/lol-api-app/assets/143167807/99febef2-9827-4a64-81ce-81f2177cd9ae)
+![v4](https://github.com/drmcodes/lol-api-app/assets/143167807/76820ccd-c9f3-4013-9c93-89ef79827760)
