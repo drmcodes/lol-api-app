@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 const ChampionImage = ({ championName }) => {
   const baseUrl = "https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/";
   const [imageUrl, setImageUrl] = useState(null);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   useEffect(() => {
     const loadChampionImage = async () => {
@@ -29,11 +34,13 @@ const ChampionImage = ({ championName }) => {
       }
     };
 
-    loadChampionImage();
-  }, [championName]);
+    if (inView) {
+      loadChampionImage();
+    }
+  }, [inView, championName]);
 
   return (
-    <div className="card-content">
+    <div className="card-content" ref={ref}>
       {imageUrl ? <img src={imageUrl} alt={championName} /> : <p>Loading...</p>}
       <p>{championName}</p>
     </div>

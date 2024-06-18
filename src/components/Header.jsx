@@ -39,8 +39,8 @@ const Header = ({ logo, onSearch, handleSelected, champions }) => {
         <div className="header-text">LOL TRACKER</div>
         <div className="header-buttons">
           <div className="input-header">
-            <input
-              placeholder="search"
+            <input className="input-search"
+              placeholder="Search..."
               value={searchTerm}
               onChange={handleSearchChange}
             />
