@@ -24,7 +24,7 @@ const ChampionImage = ({ championName }) => {
             setTimeout(() => {
               setImageUrl(baseUrl + variations[i]);
               setLoading(false);
-            }, 500);
+            }, 150);
             return;
           }
         }
